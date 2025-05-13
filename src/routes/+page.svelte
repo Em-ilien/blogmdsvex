@@ -1,2 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	import Article from '$lib/components/Article.svelte';
+	import type { PageProps } from './$types';
+
+    let { data }: PageProps = $props();
+    let posts = $derived(data.posts ?? []);
+    
+</script>
+
+{#each posts as post}
+    <a href={post.path} class="hover:bg-gray-100 block"><Article data={post} /></a>
+{:else}
+    <span>Aucun article</span>
+{/each}
