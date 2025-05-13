@@ -1,38 +1,116 @@
-# sv
+# 📝 Prerendered Blog with SvelteKit 2, Svelte 5, MDsveX 0.12.3 & Tailwind 4
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Demo 👉 [blogmdsvex.vercel.app](blogmdsvex.vercel.app)
 
-## Creating a project
+Repo 👉 [GitHub](https://github.com/Em-ilien/blogmdsvex)
 
-If you're seeing this, you've probably already done this step. Congrats!
+This project demonstrates how to build a fully prerendered blog using:
+
+-   SvelteKit 2
+-   Svelte 5
+-   MDsveX 0.12.3
+-   Tailwind CSS 4
+
+Most existing MDsveX tutorials and examples are still based on Svelte 4, so this repo aims to provide an up-to-date example for Svelte 5.
+
+To build a prerendered blog with Svelte we can use MDsveX.
+
+## 🚀 Getting Started
+
+### 1. Create a new SvelteKit project
 
 ```bash
-# create a new project in the current directory
 npx sv create
-
-# create a new project in my-app
-npx sv create my-app
 ```
 
-## Developing
+> For more context for the next steps, refer to [this commit](https://github.com/Em-ilien/blogmdsvex/commit/e4495b3dca3d609a8955bbaffb5a30c555c5f07d).
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### 2. Add markdown content
 
-```bash
-npm run dev
+Create a /content folder at the root of your project and place your markdown blog posts inside.
+Each file should be named in kebab-case format like:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```
+content/
+├─ hello-world-intro.md
+├─ my-second-post.md
 ```
 
-## Building
+### 3. Enable prerendering
 
-To create a production version of your app:
+Create a `/src/routes/+layout.server.ts` file with the following:
+
+```ts
+export const prerender = true;
+```
+
+### 4. Configure MDsveX
+
+Update your [svelte.config.js](svelte.config.js) with the proper MDsveX setup and supported extensions:
+
+```js
+import { mdsvex } from "mdsvex";
+// ...
+
+const config = {
+	preprocess: [vitePreprocess(), mdsvex({ extensions: [".md"] })],
+	extensions: [".svelte", ".md"],
+	// ...
+};
+
+export default config;
+```
+
+### 5. Create routes
+
+Create these two routes:
+
+**Home page (list of posts):**
+
+-   [/src/routes/+page.ts](/src/routes/+page.ts)
+-   [/src/routes/+page.svelte](/src/routes/+page.svelte)
+
+**Post detail page (by slug):**
+
+-   [/src/routes/[slug]/+page.ts](/src/routes/[slug]/+page.ts)
+-   [/src/routes/[slug]/+page.svelte](/src/routes/[slug]/+page.svelte)
+
+### 6. Run the project
 
 ```bash
 npm run build
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
+### 7. Development note (Vite file system access)
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+If you get errors accessing local markdown files in dev mode, update [vite.config.ts](vite.config.ts):
+
+```js
+export default defineConfig(({ mode }) => ({
+	plugins: [tailwindcss(), sveltekit()],
+	server: {
+		fs: {
+			allow: mode === "development" ? ["."] : [],
+		},
+	},
+}));
+```
+
+⚠️ Important: Only allow . in development mode to avoid security issues in production.
+
+## ✅ Summary
+
+This template shows how to:
+
+    Load markdown content at build time
+    Use MDsveX to write posts in .md or .svx
+    Generate static pages with prerender = true
+    Style the blog with Tailwind CSS 4
+
+## 🧠 Inspiration & License
+
+Inspired by https://github.com/wiscaksono/wiscaksono-site ([wiscaksono](wiscaksono.com))
+
+Feel free to fork and adapt this project. PRs are welcome.
+Licensed under MIT.
