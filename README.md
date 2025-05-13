@@ -1,6 +1,6 @@
 # 📝 Prerendered Blog with SvelteKit 2, Svelte 5, MDsveX 0.12.3 & Tailwind 4
 
-Demo 👉 [blogmdsvex.vercel.app](blogmdsvex.vercel.app)
+Demo 👉 [blogmdsvex.vercel.app](https://blogmdsvex.vercel.app)
 
 Repo 👉 [GitHub](https://github.com/Em-ilien/blogmdsvex)
 
@@ -104,13 +104,12 @@ export default defineConfig(({ mode }) => ({
 This template shows how to:
 
     Load markdown content at build time
-    Use MDsveX to write posts in .md or .svx
+    Use MDsveX to write posts in .md
     Generate static pages with prerender = true
-    Style the blog with Tailwind CSS 4
 
 ## 🧠 Inspiration & License
 
-Inspired by https://github.com/wiscaksono/wiscaksono-site ([wiscaksono](wiscaksono.com))
+Inspired by https://github.com/wiscaksono/wiscaksono-site ([wiscaksono](https://wiscaksono.com))
 
 Feel free to fork and adapt this project. PRs are welcome.
 Licensed under MIT.
