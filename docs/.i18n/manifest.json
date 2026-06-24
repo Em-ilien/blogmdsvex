@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "targets": [
+    "fr"
+  ],
+  "files": {
+    "blog/article-display.md": {
+      "fr": "36615662c7eb2ea14a7a955d9d38b17765ebb67279889bce7226dcef3de475d3"
+    },
+    "blog/index.md": {
+      "fr": "d8ca2d59607e1e81e0f5f0b3a0763b1d0020f26604bdd71663c7eb3e5dd2a955"
+    },
+    "blog/post-detail.md": {
+      "fr": "7d3121dfad64b75f1143ec3c7c88d933d9f8cbad0284f3226f1af4c409035dda"
+    },
+    "blog/post-list.md": {
+      "fr": "6e42178eeb3540cb43d2bc73f232c177d203c0650e3a486aa8dd4add842af880"
+    },
+    "content/index.md": {
+      "fr": "8dec848b1d767316c59339c6099fe766c5b0ab51b348b900be7db30aacc32b64"
+    },
+    "content/markdown-posts.md": {
+      "fr": "1fb1c93ac5d52cfd711a7f8bc61914ddacdead208dc656f2e72196e510956f64"
+    },
+    "index.md": {
+      "fr": "bf5ba01a6722e7de3449a878ecd5d4fb6cfd148694bf893d6a9686bc90777d6d"
+    },
+    "site/dev-file-access.md": {
+      "fr": "33a9e276c622bc9889426084e3ffd66c40bfd37d1d783f76b94b7dfbee3017c4"
+    },
+    "site/index.md": {
+      "fr": "81f6794b17158891aac4f7741eed696cf7a840d19b2e10d0102fc7476b926360"
+    },
+    "site/layout-and-styling.md": {
+      "fr": "6985f73eb197ee230d42e9aaf5f02f1a92b5dd7bf7682f47f382c9489edfc45b"
+    },
+    "site/prerendering.md": {
+      "fr": "f72be875deed71f44697defd16a8b450488721ed5893bf4f3cdac731d95d88aa"
+    }
+  }
+}
